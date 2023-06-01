@@ -1,16 +1,17 @@
 {
-  "name": "srt-parser-2",
+  "name": "@qgustavor/srt-parser",
   "description": "Parse SRT into array",
   "version": "1.2.3",
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "tsc --declaration",
-    "dev": "tsc -watch",
-    "test": "mocha -r esbuild-register test/**/*.ts"
+    "build": "tsc --project tsconfig.build.json",
+    "dev": "tsc --project tsconfig.build.json -watch",
+    "test": "mocha --require esbuild-register test/**/*.ts",
+    "lint": "ts-standard --fix"
   },
   "bin": {
-    "srt-parser-2": "./bin/index.js"
+    "srt-parser": "./bin/index.js"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -25,6 +26,7 @@
     "should": "^13.2.3",
     "ts-jest": "^29.0.3",
     "ts-node": "^10.9.1",
+    "ts-standard": "^12.0.2",
     "typescript": "^4.9.4",
     "yargs": "^17.6.2"
   },
@@ -39,18 +41,15 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/1c7/srt-parser-2.git"
+    "url": "git+https://github.com/qgustavor/srt-parser.git"
   },
-  "author": "Cheng Zheng (chengzheng.apply@gmail.com)",
+  "contributors": [
+    "Cheng Zheng (chengzheng.apply@gmail.com)",
+    "qgustavor (https://qgustavor.tk)"
+  ],
   "bugs": {
-    "url": "https://github.com/1c7/srt-parser-2/issues"
+    "url": "https://github.com/qgustavor/srt-parser/issues"
   },
-  "homepage": "https://github.com/1c7/srt-parser-2",
-  "prepublish": "tsc",
-  "engines": {
-    "node": "*"
-  },
-  "directories": {
-    "test": "test"
-  }
+  "homepage": "https://github.com/qgustavor/srt-parser",
+  "prepublish": "npm run build"
 }
